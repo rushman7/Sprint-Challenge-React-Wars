@@ -15,13 +15,17 @@ const App = () => {
   useEffect(() => {
     // const fetchSwapi = () => 
       axios.get(`https://swapi.co/api/people/1`)
-        .then(res =>console.log(res))
+        .then(res =>
+          setName(res.data.name)
+        )
   }, [])
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <h2></h2>
+      <div className="data-cont">
+        <h2>{name}</h2>
+      </div>
     </div>
   );
 }
