@@ -18,6 +18,7 @@ const App = () => {
   const [eye, setEye] = useState('');
   const [dob, setDob] = useState('');
   const [gender, setGender] = useState('');
+  const [home, setHome] = useState('');
 
   useEffect(() => {
     // const fetchSwapi = () => 
@@ -32,6 +33,11 @@ const App = () => {
           setEye(res.data.eye_color)
           setDob(res.data.birth_year)
           setGender(res.data.gender)
+          axios.get(res.data.homeworld)
+            .then(res => {
+              console.log(res);
+              setHome(res.data.name);
+            })
         })
   }, [])
 
@@ -40,13 +46,14 @@ const App = () => {
       <h1 className="Header">React Wars</h1>
       <div className="data-cont">
         <h2>{name}</h2>
-        <h3>{height}</h3>
-        <h3>{mass}</h3>
-        <h3>{hair}</h3>
-        <h3>{skin}</h3>
-        <h3>{eye}</h3>
-        <h3>{dob}</h3>
-        <h3>{gender}</h3>
+        <h3>Height: {height}</h3>
+        <h3>Weight: {mass}</h3>
+        <h3>Hair Color: {hair}</h3>
+        <h3>Skin Tone: {skin}</h3>
+        <h3>Eye Color: {eye}</h3>
+        <h3>Date of Birth: {dob}</h3>
+        <h3>Gender: {gender}</h3>
+        <h3>Home: {home}</h3>
       </div>
     </div>
   );
