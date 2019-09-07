@@ -19,12 +19,25 @@ const App = () => {
   const [dob, setDob] = useState('');
   const [gender, setGender] = useState('');
   const [home, setHome] = useState('');
+  const [rotate, setRotate] = useState('');
+  const [climate, setClimate] = useState('');
+  const [population, setPopulation] = useState('');
+  const [terrain, setTerrain] = useState('');
+  const [films, setFilms] = useState('');
+  let [count, setCount] = useState(1)
+
+  const increment = () => {
+    (count === 87) ? setCount(count = 1) : setCount(count + 1)
+  }
+
+  const decrement = () => {
+    (count === 1) ? setCount(count = 87) : setCount(count - 1)
+  }
 
   useEffect(() => {
-    // const fetchSwapi = () => 
-      axios.get(`https://swapi.co/api/people/1`)
+    const fetchSwapi = () => 
+      axios.get(`https://swapi.co/api/people/${count}`)
         .then(res => {
-          console.log(res.data)
           setName(res.data.name)
           setHeight(res.data.height)
           setMass(res.data.mass)
@@ -35,25 +48,46 @@ const App = () => {
           setGender(res.data.gender)
           axios.get(res.data.homeworld)
             .then(res => {
-              console.log(res);
-              setHome(res.data.name);
+              setHome(res.data.name)
+              setRotate(res.data.rotation_period)
+              setClimate(res.data.climate)
+              setPopulation(res.data.population)
+              setTerrain(res.data.terrain)
+            })
+          axios.get(res.data.films[0])
+            .then(res => {
+              setFilms(res.data.title)
             })
         })
-  }, [])
+      fetchSwapi()
+  }, [count])
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
       <div className="data-cont">
-        <h2>{name}</h2>
-        <h3>Height: {height}</h3>
-        <h3>Weight: {mass}</h3>
-        <h3>Hair Color: {hair}</h3>
-        <h3>Skin Tone: {skin}</h3>
-        <h3>Eye Color: {eye}</h3>
-        <h3>Date of Birth: {dob}</h3>
-        <h3>Gender: {gender}</h3>
-        <h3>Home: {home}</h3>
+        <h2>Name: {name}</h2>
+        <div className="data-format">
+          <h3>Height: {height}</h3>
+          <h3>Weight: {mass}</h3>
+          <h3>Hair Color: {hair}</h3>
+          <h3>Skin Tone: {skin}</h3>
+          <h3>Eye Color: {eye}</h3>
+          <h3>Date of Birth: {dob}</h3>
+          <h3>Gender: {gender}</h3>
+          <div className="home-cont">
+            <h2>Home: {home}</h2>
+            <h3>Rotation Period: {rotate}</h3>
+            <h3>Climate: {climate}</h3>
+            <h3>Population: {population}</h3>
+            <h3>Terrain: {terrain}</h3>
+          </div>
+          <div>
+            <h2>Films: {films} </h2>
+          </div>
+        </div>
+        <button onClick={increment}>Next</button>
+        <button onClick={decrement}>Previous</button>
       </div>
     </div>
   );
