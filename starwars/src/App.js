@@ -83,7 +83,7 @@ const App = () => {
             <h3>Terrain: {terrain}</h3>
           </div>
           <div>
-            <h3>First Film: {films} </h3>
+            <h2>First Film: {films} </h2>
           </div>
         </div>
         <button onClick={increment}>Next</button>

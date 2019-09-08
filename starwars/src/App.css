@@ -2,6 +2,7 @@
   text-align: center;
 }
 .Header {
+  letter-spacing: 3px;
   color: black;
   text-shadow:
   -2px -2px 0 #FFE81F,  
@@ -31,6 +32,7 @@
 }
 
 .home-cont h2 {
+  letter-spacing: 3px;
   text-align: center;
   color: black;
   text-shadow:
@@ -48,6 +50,7 @@
 }
 
 .data-cont h2 {
+  letter-spacing: 3px;
   color: black;
   text-shadow:
   -1px -1px 0 #FFE81F,  
