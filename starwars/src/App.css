@@ -14,7 +14,7 @@
 
 .data-cont {
   background: transparent;
-  width: 35%;
+  width: 80%;
   margin: 20px auto;
   border: 5px solid #FFE81F;
   border-radius: 10px;
@@ -27,7 +27,7 @@
 }
 
 .home-cont {
-  border-top: 1px solid white;
+  border-top: 1px solid #FFE81F;
 }
 
 .home-cont h2 {
@@ -43,7 +43,7 @@
 
 @media (max-width: 800px) {
   .data-cont {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -55,4 +55,21 @@
   -1px 1px 0 #FFE81F,
     1px 1px 0 #FFE81F;
   font-size: 30px
+}
+
+button {
+  margin: 20px;
+  width: 30%;
+  border: 2px solid #FFE81F;
+  background: black;
+  color: white;
+  height: 40px;
+  font-size: 25px;
+  transition: 1s;
+}
+
+button:hover {
+  background: white;
+  color: black;
+  font-weight: bold;
 }
