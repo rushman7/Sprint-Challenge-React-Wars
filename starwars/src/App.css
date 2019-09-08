@@ -32,10 +32,27 @@
 
 .home-cont h2 {
   text-align: center;
+  color: black;
+  text-shadow:
+  -1px -1px 0 #FFE81F,  
+   1px -1px 0 #FFE81F,
+   -1px 1px 0 #FFE81F,
+    1px 1px 0 #FFE81F;
+  font-size: 30px
 }
 
 @media (max-width: 800px) {
   .data-cont {
     width: 80%;
   }
+}
+
+.data-cont h2 {
+  color: black;
+  text-shadow:
+  -1px -1px 0 #FFE81F,  
+  1px -1px 0 #FFE81F,
+  -1px 1px 0 #FFE81F,
+    1px 1px 0 #FFE81F;
+  font-size: 30px
 }
